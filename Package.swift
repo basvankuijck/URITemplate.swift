@@ -1,9 +1,15 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 
 import PackageDescription
 
 let package = Package(
   name: "URITemplate",
+  platforms: [
+      .iOS(.v9),
+      .macOS(.v10_10),
+      .tvOS(.v10),
+      .watchOS(.v3)
+  ],
   products: [
     .library(name: "URITemplate", targets: ["URITemplate"])
   ],
@@ -14,5 +20,6 @@ let package = Package(
   targets: [
     .target(name: "URITemplate", dependencies: [], path: "Sources"),
     .testTarget(name: "URITemplateTests", dependencies: ["URITemplate", "PathKit", "Spectre"], path: "Tests/URITemplateTests")
-  ]
+  ],
+  swiftLanguageVersions: [ .v4, .v5 ]
 )
